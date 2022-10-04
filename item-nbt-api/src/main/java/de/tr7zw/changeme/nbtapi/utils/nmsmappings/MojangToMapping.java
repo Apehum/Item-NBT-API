@@ -27,6 +27,7 @@ public class MojangToMapping {
             put("net.minecraft.nbt.CompoundTag#getByteArray(java.lang.String)", "m");
             put("net.minecraft.nbt.CompoundTag#putInt(java.lang.String,int)", "a");
             put("net.minecraft.nbt.CompoundTag#getIntArray(java.lang.String)", "n");
+            put("net.minecraft.nbt.CompoundTag#getLongArray(java.lang.String)", "o");
             put("net.minecraft.nbt.CompoundTag#remove(java.lang.String)", "r");
             put("net.minecraft.nbt.CompoundTag#get(java.lang.String)", "c");
             put("net.minecraft.nbt.CompoundTag#put(java.lang.String,net.minecraft.nbt.Tag)", "a");
@@ -39,6 +40,7 @@ public class MojangToMapping {
             put("net.minecraft.nbt.CompoundTag#put(java.lang.String,net.minecraft.nbt.Tag)", "a");
             put("net.minecraft.nbt.CompoundTag#getByte(java.lang.String)", "f");
             put("net.minecraft.nbt.CompoundTag#putIntArray(java.lang.String,int[])", "a");
+            put("net.minecraft.nbt.CompoundTag#putLongArray(java.lang.String,long[])", "a");
             put("net.minecraft.nbt.CompoundTag#getShort(java.lang.String)", "g");
             put("net.minecraft.nbt.CompoundTag#putByte(java.lang.String,byte)", "a");
             put("net.minecraft.nbt.CompoundTag#getAllKeys()", "d");

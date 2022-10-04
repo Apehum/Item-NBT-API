@@ -16,7 +16,8 @@ public enum NBTType {
 	NBTTagFloat(5), 
 	NBTTagDouble(6),
 	NBTTagByteArray(7), 
-	NBTTagIntArray(11), 
+	NBTTagIntArray(11),
+	NbtTagLongArray(12),
 	NBTTagString(8), 
 	NBTTagList(9), 
 	NBTTagCompound(10);

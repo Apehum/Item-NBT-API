@@ -376,6 +376,37 @@ public class NBTCompound {
 
 	/**
 	 * Setter
+	 *
+	 * @param key
+	 * @param value
+	 */
+	public void setLongArray(String key, long[] value) {
+		try {
+			writeLock.lock();
+			NBTReflectionUtil.setData(this, ReflectionMethod.COMPOUND_SET_LONGARRAY, key, value);
+			saveCompound();
+		} finally {
+			writeLock.unlock();
+		}
+	}
+
+	/**
+	 * Getter
+	 *
+	 * @param key
+	 * @return The stored value or NMS fallback
+	 */
+	public long[] getLongArray(String key) {
+		try {
+			readLock.lock();
+			return (long[]) NBTReflectionUtil.getData(this, ReflectionMethod.COMPOUND_GET_LONGARRAY, key);
+		} finally {
+			readLock.unlock();
+		}
+	}
+
+	/**
+	 * Setter
 	 * 
 	 * @param key
 	 * @param value
@@ -698,6 +729,21 @@ public class NBTCompound {
             writeLock.unlock();
         }
     }
+
+	/**
+	 * @param name
+	 * @return The retrieved Long List
+	 */
+	public NBTList<long[]> getLongArrayList(String name) {
+		try {
+			writeLock.lock();
+			NBTList<long[]> list = NBTReflectionUtil.getList(this, name, NBTType.NbtTagLongArray, long[].class);
+			saveCompound();
+			return list;
+		} finally {
+			writeLock.unlock();
+		}
+	}
     
    /**
     * @param name
@@ -983,6 +1029,8 @@ public class NBTCompound {
 			return compA.getInteger(key).equals(compB.getInteger(key));
 		case NBTTagIntArray:
 			return Arrays.equals(compA.getIntArray(key), compB.getIntArray(key));
+        case NbtTagLongArray:
+            return Arrays.equals(compA.getLongArray(key), compB.getLongArray(key));
 		case NBTTagList:
 			return NBTReflectionUtil.getEntry(compA, key).toString().equals(NBTReflectionUtil.getEntry(compB, key).toString()); // Just string compare the 2 lists
 		case NBTTagLong:

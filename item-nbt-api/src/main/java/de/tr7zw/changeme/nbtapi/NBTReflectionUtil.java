@@ -467,7 +467,9 @@ public class NBTReflectionUtil {
 			} else if (clazz == Long.class) {
 				return (NBTList<T>) new NBTLongList(comp, key, type, nbt);
 			} else if (clazz == int[].class) {
-                return (NBTList<T>) new NBTIntArrayList(comp, key, type, nbt);
+				return (NBTList<T>) new NBTIntArrayList(comp, key, type, nbt);
+			} else if (clazz == long[].class) {
+				return (NBTList<T>) new NBTLongArrayList(comp, key, type, nbt);
 			} else if (clazz == UUID.class) {
                 return (NBTList<T>) new NBTUUIDList(comp, key, type, nbt);
 			} else {
